@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopicsComponent implements OnInit {
 
+  public show = false;
+
   constructor() { }
 
   ngOnInit() {

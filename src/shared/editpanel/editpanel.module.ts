@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { EditPanelomponent } from './editpanel.component';
+import { EditPanelComponent } from './editpanel.component';
 
 
 
 @NgModule({
   declarations: [
-    EditPanelomponent
+    EditPanelComponent
   ],
   imports: [
     CommonModule
   ],
   exports: [
-    EditPanelomponent
+    EditPanelComponent
   ]
 })
-export class HomeModule { }
+export class EditPanelModule { }
