@@ -119,6 +119,12 @@
           }
         }
       }
-    }},
-  "defaultProject": "ngdi"
+    }
+  },
+  "defaultProject": "ngdi",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }
