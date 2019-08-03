@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
 import { HomeRoutingModule } from './home-routing.module';
-import { PagesModule } from '../pages/pages.module';
+import { CardsModule } from '../cards/cards.module';
 import { TopicsModule } from '../topics/topics.module';
 
 @NgModule({
@@ -12,7 +12,7 @@ import { TopicsModule } from '../topics/topics.module';
   imports: [
     CommonModule,
     HomeRoutingModule,
-    PagesModule,
+    CardsModule,
     TopicsModule
   ]
 })

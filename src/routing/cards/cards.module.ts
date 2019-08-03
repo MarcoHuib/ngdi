@@ -1,30 +1,30 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PagesComponent } from './pages.component';
-import { PagesRoutingModule } from './pages-routing.module';
+import { CardsComponent } from './cards.component';
+import { CardsRoutingModule } from './cards-routing.module';
 import { EditPanelModule } from 'src/shared/editpanel/editpanel.module';
 import { EDITPANEL } from 'src/shared/editpanel/token/editpanel.token';
-import { PagesService } from './pages.services';
+import { CardsService } from './cards.services';
 
-function pageServiceFactory(): PagesService {
-  return new PagesService();
+function cardsServiceFactory(): CardsService {
+  return new CardsService();
 }
 
 @NgModule({
   declarations: [
-    PagesComponent
+    CardsComponent
   ],
   imports: [
     CommonModule,
-    PagesRoutingModule,
+    CardsRoutingModule,
     EditPanelModule
   ],
   providers: [
     {
       provide: EDITPANEL,
-      useFactory: pageServiceFactory,
+      useFactory: cardsServiceFactory,
       deps: []
     }
   ]
 })
-export class PagesModule { }
+export class CardsModule { }

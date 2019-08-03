@@ -1,5 +1,5 @@
 import { IEditPanel } from '../../shared/editpanel/Interface/ieditpanelfacade';
-export class PagesService implements IEditPanel {
+export class CardsService implements IEditPanel {
     test: string;
 
 }
