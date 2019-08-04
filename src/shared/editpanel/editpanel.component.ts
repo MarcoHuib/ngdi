@@ -9,11 +9,7 @@ import { IEdit } from './Interface/iedit.model';
   styleUrls: ['./editpanel.component.scss']
 })
 export class EditPanelComponent implements OnInit {
-  private static Example: IEdit = {
-    title: 'Topic title',
-    image: 'https://picsum.photos/200/300?random=1',
-    description: "Some quick example text to build on the card title and make up the bulk of the card's content."
-  };
+  public editValue = {} as IEdit;
 
   constructor(
     @Inject(EDITPANEL) private readonly editPanelFacade: IEditPanel<IEdit>
@@ -22,8 +18,16 @@ export class EditPanelComponent implements OnInit {
   ngOnInit() {
   }
 
-  public Submit(): void {
-    this.editPanelFacade.add(EditPanelComponent.Example);
+  public onSubmit(): void {
+    if (this.editValue.title && this.editValue.description) {
+      const submitValue = { ...this.editValue, image: `https://picsum.photos/200/200?random=${this.randomNumber()}` } as IEdit;
+      this.editValue = {} as IEdit;
+      this.editPanelFacade.add(submitValue);
+    }
   }
+
+private randomNumber(): number {
+  return Math.floor(Math.random() * 10) + 1;
+}
 
 }
