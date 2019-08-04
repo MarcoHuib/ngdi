@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { IEditPanel } from './Interface/ieditpanelfacade';
 import { EDITPANEL } from './token/editpanel.token';
+import { IEdit } from './Interface/iedit.model';
 
 @Component({
   selector: 'ngdi-editpanel',
@@ -10,10 +11,14 @@ import { EDITPANEL } from './token/editpanel.token';
 export class EditPanelComponent implements OnInit {
 
   constructor(
-    @Inject(EDITPANEL) private readonly editPanelFacade: IEditPanel
+    @Inject(EDITPANEL) private readonly editPanelFacade: IEditPanel<IEdit>
   ) { }
 
   ngOnInit() {
+  }
+
+  public Submit(): void {
+    this.editPanelFacade.add(null);
   }
 
 }
