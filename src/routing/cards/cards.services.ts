@@ -1,12 +1,19 @@
 import { IEditPanel } from '../../shared/editpanel/Interface/ieditpanelfacade';
 import { Cards } from './cards.model';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 
 export class CardsService implements IEditPanel<Cards> {
-    get(): Observable<Cards> {
-        throw new Error("Method not implemented.");
+    private cardsStore = new BehaviorSubject<Cards[]>([
+    ]);
+
+
+    get(): Observable<Cards[]> {
+        return this.cardsStore;
     }
+
     add(value: Cards): void {
-        throw new Error("Method not implemented.");
+        const cards = this.cardsStore.getValue();
+        cards.push(value);
+        this.cardsStore.next([...cards]);
     }
 }

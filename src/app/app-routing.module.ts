@@ -3,7 +3,15 @@ import { Routes, RouterModule } from '@angular/router';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' }
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  {
+    path: 'topics',
+    loadChildren: () => import('../routing/topics/topics.module').then(m => m.TopicsModule),
+  },
+  {
+    path: 'cards',
+    loadChildren: () => import('../routing/cards/cards.module').then(m => m.CardsModule),
+  }
 ];
 
 @NgModule({

@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HomeModule } from 'src/routing/home/home.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
+import { Topicservice } from 'src/routing/topics/topics.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,6 @@ import { FormsModule } from '@angular/forms';
     NgbModule,
     FormsModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

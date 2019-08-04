@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Cards } from './cards.model';
+import { Observable } from 'rxjs';
+import { CardsService } from './cards.services';
+import { EDITPANEL } from 'src/shared/editpanel/token/editpanel.token';
 
 @Component({
   selector: 'ngdi-cards',
@@ -8,28 +11,13 @@ import { Cards } from './cards.model';
 })
 export class CardsComponent implements OnInit {
 
-  private static cardExample: Cards = {
-    title: 'Card title',
-    image: 'https://picsum.photos/200/200',
-    description: "Some quick example text to build on the card title and make up the bulk of the card's content."
-  };
+  public cards$: Observable<Cards[]>;
 
-  public show = false;
-  public cards: Cards[] = [
-    CardsComponent.cardExample
-  ];
-
-
-  constructor() { }
-
-  ngOnInit() {
+  constructor(@Inject(EDITPANEL) private cardsService: CardsService) {
+    this.cards$ = this.cardsService.get();
   }
 
-  public openEditPanel() {
-    // this.show = !this.show;
-    this.cards.push(
-      CardsComponent.cardExample
-      );
+  ngOnInit() {
   }
 
 }

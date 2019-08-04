@@ -1,14 +1,19 @@
 import { IEditPanel } from '../../shared/editpanel/Interface/ieditpanelfacade';
 import { Topics} from './topics.model';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 
 export class Topicservice implements IEditPanel<Topics> {
-    get(): Observable<any> {
-        throw new Error("Method not implemented.");
+    private topicStore = new BehaviorSubject<Topics[]>([
+    ]);
+
+
+    get(): BehaviorSubject<Topics[]> {
+        return this.topicStore;
     }
 
     add(value: Topics): void {
-        throw new Error("Method not implemented.");
+        const topics = [...this.topicStore.getValue(), value];
+        this.topicStore.next(topics);
     }
 
 }
