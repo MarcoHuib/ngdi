@@ -20,7 +20,6 @@ function cardsServiceFactory(): CardsService {
     EditPanelModule
   ],
   providers: [
-    CardsService,
     {
       provide: EDITPANEL,
       useFactory: cardsServiceFactory,
