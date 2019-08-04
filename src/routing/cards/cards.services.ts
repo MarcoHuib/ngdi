@@ -12,8 +12,7 @@ export class CardsService implements IEditPanel<Cards> {
     }
 
     add(value: Cards): void {
-        const cards = this.cardsStore.getValue();
-        cards.push(value);
-        this.cardsStore.next([...cards]);
+        const cards = [...this.cardsStore.getValue(), value];
+        this.cardsStore.next(cards);
     }
 }
